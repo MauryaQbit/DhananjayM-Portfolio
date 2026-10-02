@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const outPath = join(__dirname, "..", "public", "resume.pdf");
 
-const esc = (s) => s.replace(/\/g, "\\\\").replace(/\(/g, "\(").replace(/\)/g, "\)");
+const esc = (s) => s.replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
 
 const L = [];
 let y = 756;
@@ -42,7 +42,7 @@ bullet("Web Developer Intern - Zidio Development (Jul 2026 - Present)", 14);
 bullet("Designing, developing, and deploying responsive web applications; integrating third-party", 13);
 bullet("APIs; collaborating with UI/UX teams; participating in code reviews and agile workflows.", 13);
 bullet("Open Source Contributor - Corsair Open Source (2026)", 14);
-bullet("Delivered 7+ pull requests, all merged into production, building TypeScript API plugins", 13);
+bullet("Delivered 15+ pull requests, all merged into production, building TypeScript API plugins", 13);
 bullet("via REST APIs; participated in maintainer-led code reviews and CI/CD workflows.", 13);
 
 heading("Projects");
@@ -56,10 +56,10 @@ bullet("48,120-row dataset across 4 junctions; Random Forest best at MAE ~2.89."
 
 heading("Technical Skills");
 bullet("Frontend:  React.js, Next.js, HTML5, CSS3, Tailwind CSS", 14);
-bullet("Backend:  Node.js, Django, Flask, REST APIs, JWT Authentication", 14);
+bullet("Backend:  Node.js, REST APIs, JWT Authentication", 14);
 bullet("Languages:  Python, JavaScript, TypeScript", 14);
-bullet("Databases:  PostgreSQL, MongoDB, Firebase / Firestore, MySQL", 14);
-bullet("Cloud & DevOps:  AWS EC2, AWS S3, Git, GitHub, Jenkins, CI/CD, Linux", 14);
+bullet("Databases:  MongoDB, Firebase / Firestore, MySQL", 14);
+bullet("Cloud & DevOps:  AWS EC2, AWS S3, Git, GitHub, CI/CD, Linux", 14);
 bullet("AI / ML:  Pandas, NumPy, Scikit-learn, Anthropic Claude API", 14);
 
 heading("Education");
@@ -68,7 +68,7 @@ bullet("(2023 - 2027, Pursuing)   |   Higher Secondary - Aditya Academy, Mumbai 
 
 heading("Achievements");
 bullet("Top Team Recognition - NEOFuture Hackathon 2026  |  JPMorgan Chase Software Engineering", 14);
-bullet("Job Simulation (Forage, Sep 2025)  |  7+ merged open-source pull requests", 13);
+bullet("Job Simulation (Forage, Sep 2025)  |  15+ merged open-source pull requests", 13);
 
 const content = L.map(
   ({ font, size, x, y: ty, text, color }) =>

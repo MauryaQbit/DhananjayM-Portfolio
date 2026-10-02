@@ -76,17 +76,17 @@ export const techStack: TechCategory[] = [
   {
     title: "Backend",
     icon: "server",
-    items: ["Django", "Flask", "REST APIs", "JWT Authentication"],
+    items: ["Node.js", "Express.js", "REST APIs", "JWT Authentication"],
   },
   {
     title: "Databases",
     icon: "database",
-    items: ["PostgreSQL", "MongoDB", "Firebase / Firestore", "MySQL"],
+    items: [ "MongoDB", "Firebase / Firestore", "MySQL"],
   },
   {
     title: "Cloud & DevOps",
     icon: "cloud",
-    items: ["AWS EC2", "AWS S3", "Git", "GitHub", "Jenkins", "CI/CD", "Linux"],
+    items: ["AWS EC2", "AWS S3", "Git", "GitHub",  "CI/CD", "Linux"],
   },
   {
     title: "Core CS",
