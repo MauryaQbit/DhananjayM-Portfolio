@@ -82,7 +82,7 @@ const personJsonLd = {
   url: SITE_URL,
   sameAs: [
     "https://github.com/MauryaQbit",
-    "https://linkedin.com/in/dhananjay-maurya",
+    "https://www.linkedin.com/in/dhananjay-maurya-8943312bb/",
   ],
   address: {
     "@type": "PostalAddress",
