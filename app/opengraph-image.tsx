@@ -96,7 +96,7 @@ export default function OpengraphImage() {
         >
           <span>github.com/MauryaQbit</span>
           <span>·</span>
-          <span>linkedin.com/in/dhananjay-maurya</span>
+          <span>linkedin.com/in/dhananjay-maurya-8943312bb</span>
         </div>
         <div
           style={{
