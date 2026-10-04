@@ -132,13 +132,13 @@ export default function Navbar() {
             <FaLinkedinIn size={15} aria-hidden />
           </a>
           <a
-            href="/SDE.pdf"
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary !py-2 !px-3.5 !text-[0.8rem]"
           >
             <FiDownload aria-hidden />
-            SDE.pdf
+            Resume
           </a>
         </div>
 
@@ -190,9 +190,9 @@ export default function Navbar() {
                 <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="icon-btn" aria-label="LinkedIn profile">
                   <FaLinkedinIn size={17} aria-hidden />
                 </a>
-                <a href="/SDE.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary ml-auto py-2 px-4">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary ml-auto py-2 px-4">
                   <FiDownload aria-hidden />
-                  SDE.pdf
+                  Resume
                 </a>
               </li>
             </ul>

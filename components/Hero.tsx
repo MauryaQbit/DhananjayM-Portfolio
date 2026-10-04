@@ -97,13 +97,13 @@ export default function Hero() {
                 <FiArrowDown aria-hidden />
               </a>
               <a
-                href="/SDE.pdf"
+                href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline"
               >
                 <FiFileText aria-hidden />
-                SDE.pdf
+                Resume.pdf
               </a>
               <a
                 href={githubUrl}
