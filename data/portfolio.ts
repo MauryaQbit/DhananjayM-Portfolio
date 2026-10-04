@@ -30,11 +30,11 @@ export const profile = {
 
 export const socials: SocialLink[] = [
   { label: "GitHub", url: "https://github.com/MauryaQbit" },
-  { label: "LinkedIn", url: "https://linkedin.com/in/dhananjay-maurya" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/dhananjay-maurya-8943312bb/" },
 ];
 
 export const githubUrl = "https://github.com/MauryaQbit";
-export const linkedinUrl = "https://linkedin.com/in/dhananjay-maurya";
+export const linkedinUrl = "https://www.linkedin.com/in/dhananjay-maurya-8943312bb/";
 
 export const navLinks = [
   { label: "Home", href: "#home" },
