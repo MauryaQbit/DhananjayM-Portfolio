@@ -338,11 +338,267 @@ function ExpensePreview() {
   );
 }
 
+/* ---------------------------------------------------------------- */
+/* 5. IronFlex — 3D gym site                                        */
+/* ---------------------------------------------------------------- */
+
+function GymPreview() {
+  return (
+    <div className="bg-[#14110d] p-4">
+      {/* Nav tabs */}
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex gap-1.5">
+          {["Home", "Programs", "Pricing"].map((t, i) => (
+            <div
+              key={t}
+              className={`rounded px-2.5 py-1 font-mono text-[0.6rem] ${
+                i === 0
+                  ? "border border-accent/50 bg-accent/15 text-accent-light"
+                  : "border border-line bg-surface-2 text-muted"
+              }`}
+            >
+              {t}
+            </div>
+          ))}
+        </div>
+        <div className="h-1.5 w-12 rounded bg-line" />
+      </div>
+
+      {/* Hero canvas — react-three-fiber wireframe */}
+      <div className="relative mb-3 h-28 overflow-hidden rounded-md border border-line bg-surface-2">
+        <svg
+          viewBox="0 0 120 70"
+          className="absolute inset-0 h-full w-full"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden
+        >
+          <polygon
+            points="60,12 96,30 60,48 24,30"
+            fill="rgba(255,92,31,0.18)"
+            stroke="#ffa25e"
+            strokeWidth="1.2"
+          />
+          <line x1="60" y1="12" x2="60" y2="30" stroke="#ffa25e" strokeWidth="1" />
+          <line x1="24" y1="30" x2="60" y2="48" stroke="#33291d" strokeWidth="1" />
+          <line x1="96" y1="30" x2="60" y2="48" stroke="#33291d" strokeWidth="1" />
+        </svg>
+        <span className="absolute bottom-1.5 left-2.5 font-mono text-[0.6rem] text-muted">
+          HERO3D — REACT THREE FIBER
+        </span>
+      </div>
+
+      {/* Membership tiles */}
+      <div className="grid grid-cols-3 gap-2">
+        {[
+          ["Members", "bg-moss/60"],
+          ["BMI", "bg-accent-light/80"],
+          ["Cart", "bg-gold/60"],
+        ].map(([s, color]) => (
+          <div
+            key={s}
+            className="rounded-md border border-line bg-surface-2 p-2.5"
+          >
+            <div className={`mb-2 h-2.5 w-2/3 rounded ${color}`} />
+            <div className="h-1.5 w-1/2 rounded bg-line" />
+          </div>
+        ))}
+      </div>
+
+      {/* Rule-based coach chat */}
+      <div className="mt-3 flex flex-col gap-2 rounded-md border border-line bg-surface-2 p-3">
+        <div className="flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-moss" aria-hidden />
+          <span className="font-mono text-[0.6rem] text-muted">
+            FLEX AI — RULE-BASED COACH
+          </span>
+        </div>
+        <div className="flex items-end gap-2">
+          <div className="h-5 w-2/3 rounded-md rounded-bl-sm bg-line" />
+        </div>
+        <div className="flex items-end justify-end gap-2">
+          <div className="h-5 w-1/2 rounded-md rounded-br-sm bg-accent/40" />
+        </div>
+        <div className="h-1.5 w-16 rounded bg-line" />
+      </div>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* 6. SmartDesk AI — helpdesk + RAG                                 */
+/* ---------------------------------------------------------------- */
+
+function HelpdeskPreview() {
+  const tickets = [
+    ["T-1042", "Charged twice", "Urgent", "bg-accent", "text-accent-light"],
+    ["T-1041", "Cannot log in", "High", "bg-gold", "text-gold"],
+    ["T-1039", "Refund request", "Medium", "bg-moss/70", "text-moss"],
+  ];
+  return (
+    <div className="bg-[#14110d] p-4">
+      {/* Nav tabs */}
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex gap-1.5">
+          {["Tickets", "KB", "Analytics"].map((t, i) => (
+            <div
+              key={t}
+              className={`rounded px-2.5 py-1 font-mono text-[0.6rem] ${
+                i === 0
+                  ? "border border-accent/50 bg-accent/15 text-accent-light"
+                  : "border border-line bg-surface-2 text-muted"
+              }`}
+            >
+              {t}
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-moss" aria-hidden />
+          <span className="font-mono text-[0.6rem] text-muted">SOCKET.IO</span>
+        </div>
+      </div>
+
+      {/* Queue tiles */}
+      <div className="mb-3 grid grid-cols-3 gap-2">
+        {[
+          ["Open", "bg-accent-light/80"],
+          ["Resolved", "bg-moss/60"],
+          ["Urgent", "bg-accent"],
+        ].map(([s, color]) => (
+          <div
+            key={s}
+            className="rounded-md border border-line bg-surface-2 p-2.5"
+          >
+            <div className={`mb-2 h-2.5 w-1/2 rounded ${color}`} />
+            <div className="h-1.5 w-2/3 rounded bg-line" />
+          </div>
+        ))}
+      </div>
+
+      {/* Ticket queue */}
+      <div className="flex flex-col gap-1.5 rounded-md border border-line bg-surface-2 p-2.5">
+        {tickets.map(([id, pri, dot, chipColor]) => (
+          <div
+            key={id}
+            className="flex items-center gap-2 border-b border-line pb-1.5 last:border-0 last:pb-0"
+          >
+            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-line" />
+            <div className="h-1.5 w-12 shrink-0 rounded bg-line" />
+            <div className="h-1.5 flex-1 rounded bg-muted/40" />
+            <span
+              className={`inline-flex items-center gap-1 rounded-sm border border-line px-1.5 py-0.5 font-mono text-[0.55rem] uppercase ${chipColor}`}
+            >
+              <span className={`h-1 w-1 rounded-full ${dot}`} aria-hidden />
+              {pri}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* AI triage + RAG verdict */}
+      <div className="mt-3 flex flex-col gap-1.5 rounded-md border border-accent/40 bg-accent/10 px-3 py-2">
+        <span className="font-mono text-[0.6rem] text-accent-light">
+          AI TRIAGE — PRIORITY: HIGH · SENTIMENT: NEGATIVE
+        </span>
+        <span className="font-mono text-[0.6rem] text-body">
+          RAG — TOP-3 CHUNKS · ESCALATE IF NO CONTEXT
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* 7. Flask billing system — shop, cart, PDF invoice                */
+/* ---------------------------------------------------------------- */
+
+function BillingPreview() {
+  return (
+    <div className="bg-[#14110d] p-4">
+      {/* Nav tabs */}
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex gap-1.5">
+          {["Shop", "Cart", "Invoices"].map((t, i) => (
+            <div
+              key={t}
+              className={`rounded px-2.5 py-1 font-mono text-[0.6rem] ${
+                i === 0
+                  ? "border border-accent/50 bg-accent/15 text-accent-light"
+                  : "border border-line bg-surface-2 text-muted"
+              }`}
+            >
+              {t}
+            </div>
+          ))}
+        </div>
+        <div className="h-1.5 w-12 rounded bg-line" />
+      </div>
+
+      {/* Product grid */}
+      <div className="mb-3 grid grid-cols-3 gap-2">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div
+            key={i}
+            className="rounded-md border border-line bg-surface-2 p-2"
+          >
+            <div className="mb-2 h-8 rounded-sm bg-muted/20" />
+            <div className="h-1.5 w-3/4 rounded bg-line" />
+            <div className="mt-1.5 h-1.5 w-1/2 rounded bg-accent/40" />
+          </div>
+        ))}
+      </div>
+
+      {/* Cart summary */}
+      <div className="mb-3 flex flex-col gap-1.5 rounded-md border border-line bg-surface-2 p-2.5">
+        {[
+          ["Subtotal", "w-2/3"],
+          ["Tax 18%", "w-1/3"],
+        ].map(([label, w]) => (
+          <div key={label} className="flex items-center gap-2">
+            <div className="h-1.5 w-10 rounded bg-line" />
+            <div className={`h-1.5 rounded ${w} bg-muted/40`} />
+          </div>
+        ))}
+        <div className="flex items-center gap-2 border-t border-line pt-1.5">
+          <div className="h-1.5 w-10 rounded bg-line" />
+          <div className="h-2 w-1/2 rounded bg-accent" />
+        </div>
+      </div>
+
+      {/* PDF invoice with QR */}
+      <div className="flex items-center gap-3 rounded-md border border-line bg-surface-2 p-3">
+        <div className="grid grid-cols-4 gap-px">
+          {Array.from({ length: 16 }).map((_, i) => (
+            <span
+              key={i}
+              className={`h-1 w-1 rounded-[1px] ${
+                [0, 1, 4, 6, 9, 10, 15, 5].includes(i)
+                  ? "bg-heading"
+                  : "bg-transparent"
+              }`}
+            />
+          ))}
+        </div>
+        <div className="flex-1">
+          <div className="h-1.5 w-3/4 rounded bg-line" />
+          <div className="mt-1.5 h-1.5 w-1/2 rounded bg-line" />
+        </div>
+        <span className="font-mono text-[0.6rem] text-accent-light">
+          PDF
+        </span>
+      </div>
+    </div>
+  );
+}
+
 const previews = {
   analytics: { url: "feedback-loop — dashboard", label: "AI Customer Feedback Intelligence Platform", Component: AnalyticsPreview },
   campus: { url: "campussync-c3d3c.web.app", label: "CampusSync", Component: CampusPreview },
   traffic: { url: "traffic-forecast — streamlit", label: "Smart City Traffic Forecasting", Component: TrafficPreview },
   expense: { url: "expanse-tracker — django dashboard", label: "Expanse Tracker", Component: ExpensePreview },
+  gym: { url: "iron-flex-gym.vercel.app", label: "IronFlex Gym", Component: GymPreview },
+  helpdesk: { url: "smartdesk-ai-alpha.vercel.app", label: "SmartDesk AI", Component: HelpdeskPreview },
+  billing: { url: "billing-system — flask shop", label: "Flask Billing System", Component: BillingPreview },
 } as const;
 
 export default function ProjectPreview({ variant }: { variant: keyof typeof previews }) {

@@ -138,7 +138,7 @@ export default function Projects() {
               Pinned to the <em className="display-italic">board.</em>
             </>
           }
-          description="Four builds I'd defend in a code review — an AI analytics platform, a live campus system, a Django expense manager, and an end-to-end ML pipeline."
+          description="Seven builds I'd defend in a code review — an AI analytics platform, a live campus system, a Django expense manager, a helpdesk with grounded RAG, a 3D gym site, a Flask billing system, and an end-to-end ML pipeline."
         />
 
         <div className="flex flex-col gap-8">
