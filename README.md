@@ -6,16 +6,17 @@ Built with Next.js 16 (App Router), TypeScript, Tailwind CSS 4, and Framer Motio
 
 ## Sections
 1. Navbar — sticky, active-section highlighting, mobile hamburger, Resume button
-2. Hero — intro, CTA buttons (Projects / GitHub / LinkedIn / X / Resume)
-3. About — bio + stats (10+ merged PRs, internship, hackathon recognition)
+2. Hero — intro, CTAs, meta ledger row and a “field log” index card
+3. About — bio + animated stats ledger
 4. Tech Stack — categorized technologies with icons
-5. Experience — timeline (Zidio Development, Corsair Open Source)
-6. Featured Projects — case-study card + project cards with stylized UI previews
-7. Achievements & Certifications
-8. Open Source
-9. Education
-10. Contact + Footer
-11. AI Chatbot — floating assistant that answers questions about the portfolio
+5. Experience — numbered ledger timeline (Zidio Development, Corsair Open Source)
+6. Projects — featured case-study card + project cards with stylized UI previews
+7. Blog — `/blog` index and `/blog/[slug]` post pages
+8. Achievements & Certifications
+9. Open Source
+10. Education
+11. Contact + Footer
+12. AI Chatbot — floating assistant that answers questions about the portfolio
 
 ## AI Chatbot Setup
 
@@ -44,6 +45,11 @@ visitors to the contact section. The API key is only ever used server-side
 (`app/api/chat/route.ts`), never exposed to the browser. Requests are
 rate-limited to 20 per 5 minutes per visitor.
 
+> **Deploying?** `.env*` is gitignored, so your key never reaches GitHub or
+> Vercel from the repo. Set it in **Vercel → Project → Settings → Environment
+> Variables** and redeploy — otherwise the chat route 500s on the live site
+> while working fine locally.
+
 ## Getting Started
 
 ```bash
@@ -62,11 +68,16 @@ npm start
 
 ## Customization
 - `data/portfolio.ts` — single source of truth for profile, links, stats, tech stack, experience, projects, achievements, education
+- `data/blog.ts` — blog post metadata; article bodies live in `components/blog/`
 - `public/resume.pdf` — the downloadable CV; replace this file to update the resume
 - `app/globals.css` — design tokens (colors, fonts) via Tailwind v4 `@theme`
 - `app/layout.tsx` — SEO metadata; update `SITE_URL` to the production domain after deployment
 
 ## Design
-- Near-black background (`#0a0a0e`) with a single indigo accent (`#6366f1`)
-- Inter + JetBrains Mono via `next/font`
+“Workshop Ledger” — a warm editorial take, not the usual dark-SaaS template:
+
+- Espresso base (`#12100c`) with cream text (`#f2e9d6`) and a single ember accent (`#ff5c1f`)
+- Supporting moss, gold and paper tones for status and receipts
+- Fraunces (display serif) + Space Grotesk (UI) + JetBrains Mono (data) via `next/font`
+- Physical metaphors: tape, rubber stamps, ticket perforations, paper cards, film grain
 - Respects `prefers-reduced-motion`; keyboard-accessible with visible focus states
