@@ -38,7 +38,7 @@ export interface Project {
   /** Featured projects render as a large case-study card. */
   featured?: boolean;
   /** Visual preview variant rendered inside a browser-frame mock. */
-  preview: "analytics" | "campus" | "traffic";
+  preview: "analytics" | "campus" | "traffic" | "expense";
   badge?: { label: string; icon: "trophy" | "users" };
   result?: string;
 }

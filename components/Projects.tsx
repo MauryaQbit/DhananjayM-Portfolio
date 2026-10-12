@@ -24,16 +24,30 @@ function Badge({ project }: { project: Project }) {
   );
 }
 
-function ProjectCard({ project, no }: { project: Project; no: string }) {
+function ProjectCard({
+  project,
+  no,
+  className,
+}: {
+  project: Project;
+  no: string;
+  className?: string;
+}) {
   const featured = project.featured;
   return (
-    <Reveal>
+    <Reveal className={className}>
       <article
         className={`group paper-card overflow-hidden ${
-          featured ? "md:grid md:grid-cols-[0.95fr_1.05fr]" : "flex h-full flex-col"
+          featured || className
+            ? "md:grid md:grid-cols-[0.95fr_1.05fr]"
+            : "flex h-full flex-col"
         }`}
       >
-        <div className={`p-5 pb-0 sm:p-6 sm:pb-0 ${featured ? "md:p-8 md:pr-0 md:pb-8" : ""}`}>
+        <div
+          className={`p-5 pb-0 sm:p-6 sm:pb-0 ${
+            featured || className ? "md:p-8 md:pr-0 md:pb-8" : ""
+          }`}
+        >
           <ProjectPreview variant={project.preview} />
           <p className="mt-3 flex items-center justify-between font-mono text-[0.65rem] tracking-[0.18em] text-muted">
             <span>FIG. {no}</span>
@@ -41,7 +55,11 @@ function ProjectCard({ project, no }: { project: Project; no: string }) {
           </p>
         </div>
 
-        <div className={`flex flex-1 flex-col p-6 sm:p-8 ${featured ? "md:pl-8" : ""}`}>
+        <div
+          className={`flex flex-1 flex-col p-6 sm:p-8 ${
+            featured || className ? "md:pl-8" : ""
+          }`}
+        >
           <div className="flex flex-wrap items-center gap-3">
             <span className="font-mono text-xs text-accent font-bold">{no}</span>
             <Badge project={project} />
@@ -106,6 +124,8 @@ function ProjectCard({ project, no }: { project: Project; no: string }) {
 export default function Projects() {
   const featured = projects.filter((p) => p.featured);
   const standard = projects.filter((p) => !p.featured);
+  /* With an odd number of standard cards the last one would sit alone. */
+  const lastIsOdd = standard.length % 2 === 1;
 
   return (
     <section id="projects" className="py-20 sm:py-28" aria-label="Projects">
@@ -118,7 +138,7 @@ export default function Projects() {
               Pinned to the <em className="display-italic">board.</em>
             </>
           }
-          description="Three builds I'd defend in a code review — an AI analytics platform, a live campus system, and an end-to-end ML pipeline."
+          description="Four builds I'd defend in a code review — an AI analytics platform, a live campus system, a Django expense manager, and an end-to-end ML pipeline."
         />
 
         <div className="flex flex-col gap-8">
@@ -131,6 +151,7 @@ export default function Projects() {
                 key={project.id}
                 project={project}
                 no={String(featured.length + i + 1).padStart(2, "0")}
+                className={lastIsOdd && i === standard.length - 1 ? "md:col-span-2" : undefined}
               />
             ))}
           </div>

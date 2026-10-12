@@ -214,10 +214,135 @@ function TrafficPreview() {
   );
 }
 
+/* ---------------------------------------------------------------- */
+/* 4. Expanse Tracker — Django expense dashboard                     */
+/* ---------------------------------------------------------------- */
+
+function ExpensePreview() {
+  const categories = [
+    ["Rent & Bills", "w-11/12", "bg-accent"],
+    ["Groceries", "w-7/12", "bg-accent/70"],
+    ["Transport", "w-4/12", "bg-accent/45"],
+    ["Dining", "w-3/12", "bg-muted/40"],
+  ];
+  /* Solid history with a dashed forecast tail */
+  const trend =
+    "M0,64 L18,58 L36,62 L54,44 L72,50 L90,36 L108,42 L126,28 L144,34";
+  const forecast = "M144,34 L162,30 L180,26 L198,22 L216,26 L234,14 L252,10";
+  return (
+    <div className="bg-[#14110d] p-4">
+      {/* Nav tabs */}
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex gap-1.5">
+          {["Dashboard", "Goals", "Reports"].map((t, i) => (
+            <div
+              key={t}
+              className={`rounded px-2.5 py-1 font-mono text-[0.6rem] ${
+                i === 0
+                  ? "border border-accent/50 bg-accent/15 text-accent-light"
+                  : "border border-line bg-surface-2 text-muted"
+              }`}
+            >
+              {t}
+            </div>
+          ))}
+        </div>
+        <div className="h-1.5 w-12 rounded bg-line" />
+      </div>
+
+      {/* Summary tiles */}
+      <div className="mb-3 grid grid-cols-3 gap-2">
+        {["Spent this month", "Budget left", "Top category"].map((s, i) => (
+          <div key={s} className="rounded-md border border-line bg-surface-2 p-2">
+            <div className="mb-1.5 h-1.5 w-2/3 rounded bg-line" />
+            <div
+              className={`h-2.5 rounded ${
+                i === 1 ? "w-1/2 bg-moss/60" : "w-3/5 bg-accent-light/80"
+              }`}
+            />
+            <span className="sr-only">{s}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Spend trend + forecast */}
+      <div className="rounded-md border border-line bg-surface-2 p-3">
+        <div className="mb-2.5 flex items-center justify-between">
+          <div className="h-1.5 w-24 rounded bg-line" />
+          <div className="h-1.5 w-10 rounded bg-accent/50" />
+        </div>
+        <svg
+          viewBox="0 0 252 100"
+          className="h-24 w-full"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden
+        >
+          {[25, 50, 75].map((y) => (
+            <line
+              key={y}
+              x1="0"
+              y1={y}
+              x2="252"
+              y2={y}
+              stroke="#33291d"
+              strokeWidth="1"
+            />
+          ))}
+          <path
+            d={trend}
+            fill="none"
+            stroke="#ff5c1f"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+          <path
+            d={forecast}
+            fill="none"
+            stroke="#ff5c1f"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeDasharray="4 3"
+            opacity="0.6"
+          />
+          <circle cx="252" cy="10" r="3" fill="#ffa25e" />
+        </svg>
+        <div className="mt-2 flex items-center gap-4">
+          <span className="flex items-center gap-1.5 font-mono text-[0.6rem] text-muted">
+            <span className="inline-block h-0.5 w-4 bg-accent" /> Actual
+          </span>
+          <span className="flex items-center gap-1.5 font-mono text-[0.6rem] text-muted">
+            <span
+              className="inline-block h-0.5 w-4"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(90deg,#ff5c1f 0 4px,transparent 4px 7px)",
+              }}
+            />
+            Forecast
+          </span>
+        </div>
+      </div>
+
+      {/* Category breakdown */}
+      <div className="mt-3 flex flex-col gap-2 rounded-md border border-line bg-surface-2 p-3">
+        {categories.map(([label, w, color]) => (
+          <div key={label} className="flex items-center gap-2">
+            <div className="h-1.5 w-16 shrink-0 rounded bg-line" />
+            <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-background">
+              <div className={`h-full rounded-full ${w} ${color}`} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const previews = {
   analytics: { url: "feedback-loop — dashboard", label: "AI Customer Feedback Intelligence Platform", Component: AnalyticsPreview },
   campus: { url: "campussync-c3d3c.web.app", label: "CampusSync", Component: CampusPreview },
   traffic: { url: "traffic-forecast — streamlit", label: "Smart City Traffic Forecasting", Component: TrafficPreview },
+  expense: { url: "expanse-tracker — django dashboard", label: "Expanse Tracker", Component: ExpensePreview },
 } as const;
 
 export default function ProjectPreview({ variant }: { variant: keyof typeof previews }) {

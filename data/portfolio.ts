@@ -206,6 +206,34 @@ export const projects: Project[] = [
     preview: "traffic",
     result: "Random Forest achieved the best performance with MAE ~2.89.",
   },
+  {
+    id: 4,
+    title: "Expanse Tracker — Personal Expense Manager",
+    description:
+      "A Django web application for logging and analysing day-to-day spending, with machine-learning categorisation of expenses typed in free text, spending goals, and PDF report generation.",
+    tech: [
+      "Django",
+      "Django REST Framework",
+      "Python",
+      "scikit-learn",
+      "NLTK",
+      "Pandas",
+      "SQLite",
+      "JavaScript",
+    ],
+    features: [
+      "Log expenses with date, description, amount and category",
+      "Automatic categorisation of new entries from their description using TF-IDF vectorisation and a Random Forest classifier",
+      "NLTK-based text preprocessing (tokenisation, stop-word removal) feeding the classifier",
+      "Per-user accounts, profiles and currency preferences",
+      "Savings goals that compute progress and the daily amount required to hit the target",
+      "PDF report generation with ReportLab and embedded QR codes",
+      "REST APIs exposed through Django REST Framework alongside a JavaScript-driven UI",
+      "Daily expense limits with email notifications when approached",
+    ],
+    githubUrl: "https://github.com/MauryaQbit/Expanse-Tracker",
+    preview: "expense",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
