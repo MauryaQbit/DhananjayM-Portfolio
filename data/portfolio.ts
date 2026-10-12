@@ -295,7 +295,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
-    title: "Flask Billing System — Shop to Invoice",
+    title: "python-base-billing-system",
     description:
       "A Flask point-of-sale app covering product browsing, cart, checkout and downloadable PDF invoices, with a server-rendered UI and email delivery built in.",
     tech: ["Python", "Flask", "SQLite", "ReportLab", "Bootstrap", "HTML/CSS"],

@@ -598,7 +598,7 @@ const previews = {
   expense: { url: "expanse-tracker — django dashboard", label: "Expanse Tracker", Component: ExpensePreview },
   gym: { url: "iron-flex-gym.vercel.app", label: "IronFlex Gym", Component: GymPreview },
   helpdesk: { url: "smartdesk-ai-alpha.vercel.app", label: "SmartDesk AI", Component: HelpdeskPreview },
-  billing: { url: "billing-system — flask shop", label: "Flask Billing System", Component: BillingPreview },
+  billing: { url: "billing-system — flask shop", label: "python-base-billing-system", Component: BillingPreview },
 } as const;
 
 export default function ProjectPreview({ variant }: { variant: keyof typeof previews }) {
